@@ -11,7 +11,7 @@ namespace SkyViews.Pages
     {
         public void OnGet()
         {
-
+            // Hi
         }
     }
 }
