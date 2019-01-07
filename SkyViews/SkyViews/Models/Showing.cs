@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SkyViews.Models
 {
-    public class Showings
+    public class Showing
     {
         public int ShowingID { get; set; }
         public int RoomID { get; set; }
