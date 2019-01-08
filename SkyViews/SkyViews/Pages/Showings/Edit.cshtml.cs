@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SkyViews.Models;
 
-namespace SkyViews.Pages.Showing
+namespace SkyViews.Pages.Showings
 {
     public class EditModel : PageModel
     {

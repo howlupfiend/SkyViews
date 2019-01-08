@@ -13,6 +13,6 @@ namespace SkyViews.Models
         {
         }
 
-        public DbSet<SkyViews.Models.Showing> Showing { get; set; }
+        public DbSet<Showing> Showing { get; set; }
     }
 }
