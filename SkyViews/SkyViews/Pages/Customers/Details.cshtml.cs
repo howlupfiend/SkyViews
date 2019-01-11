@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SkyViews.Models;
 
-namespace SkyViews.Pages.Showings
+namespace SkyViews.Pages.Customers
 {
     public class DetailsModel : PageModel
     {
-        private readonly SkyViews.Models.SkyViewsShowingsContext _context;
+        private readonly SkyViews.Models.SkyViewsContext _context;
 
-        public DetailsModel(SkyViews.Models.SkyViewsShowingsContext context)
+        public DetailsModel(SkyViews.Models.SkyViewsContext context)
         {
             _context = context;
         }
 
-        public Showing Showing { get; set; }
+        public Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,9 +27,9 @@ namespace SkyViews.Pages.Showings
                 return NotFound();
             }
 
-            Showing = await _context.Showing.FirstOrDefaultAsync(m => m.ShowingID == id);
+            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.CustomerID == id);
 
-            if (Showing == null)
+            if (Customer == null)
             {
                 return NotFound();
             }

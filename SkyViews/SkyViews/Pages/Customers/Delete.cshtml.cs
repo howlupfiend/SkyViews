@@ -7,19 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SkyViews.Models;
 
-namespace SkyViews.Pages.Showings
+namespace SkyViews.Pages.Customers
 {
     public class DeleteModel : PageModel
     {
-        private readonly SkyViews.Models.SkyViewsShowingsContext _context;
+        private readonly SkyViews.Models.SkyViewsContext _context;
 
-        public DeleteModel(SkyViews.Models.SkyViewsShowingsContext context)
+        public DeleteModel(SkyViews.Models.SkyViewsContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Showing Showing { get; set; }
+        public Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace SkyViews.Pages.Showings
                 return NotFound();
             }
 
-            Showing = await _context.Showing.FirstOrDefaultAsync(m => m.ShowingID == id);
+            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.CustomerID == id);
 
-            if (Showing == null)
+            if (Customer == null)
             {
                 return NotFound();
             }
@@ -44,11 +44,11 @@ namespace SkyViews.Pages.Showings
                 return NotFound();
             }
 
-            Showing = await _context.Showing.FindAsync(id);
+            Customer = await _context.Customer.FindAsync(id);
 
-            if (Showing != null)
+            if (Customer != null)
             {
-                _context.Showing.Remove(Showing);
+                _context.Customer.Remove(Customer);
                 await _context.SaveChangesAsync();
             }
 

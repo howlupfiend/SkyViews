@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SkyViews.Models;
 
-namespace SkyViews.Pages.Showings
+namespace SkyViews.Pages.Customers
 {
     public class IndexModel : PageModel
     {
-        private readonly SkyViews.Models.SkyViewsShowingsContext _context;
+        private readonly SkyViews.Models.SkyViewsContext _context;
 
-        public IndexModel(SkyViews.Models.SkyViewsShowingsContext context)
+        public IndexModel(SkyViews.Models.SkyViewsContext context)
         {
             _context = context;
         }
 
-        public IList<Showing> Showing { get;set; }
+        public IList<Customer> Customer { get;set; }
 
         public async Task OnGetAsync()
         {
-            Showing = await _context.Showing.ToListAsync();
+            Customer = await _context.Customer.ToListAsync();
         }
     }
 }

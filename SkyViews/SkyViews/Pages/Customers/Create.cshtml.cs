@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SkyViews.Models;
 
-namespace SkyViews.Pages.Showings
+namespace SkyViews.Pages.Customers
 {
     public class CreateModel : PageModel
     {
-        private readonly SkyViews.Models.SkyViewsShowingsContext _context;
+        private readonly SkyViews.Models.SkyViewsContext _context;
 
-        public CreateModel(SkyViews.Models.SkyViewsShowingsContext context)
+        public CreateModel(SkyViews.Models.SkyViewsContext context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace SkyViews.Pages.Showings
         }
 
         [BindProperty]
-        public Showing Showing { get; set; }
+        public Customer Customer { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -33,7 +33,7 @@ namespace SkyViews.Pages.Showings
                 return Page();
             }
 
-            _context.Showing.Add(Showing);
+            _context.Customer.Add(Customer);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

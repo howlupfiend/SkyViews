@@ -8,19 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SkyViews.Models;
 
-namespace SkyViews.Pages.Showings
+namespace SkyViews.Pages.Customers
 {
     public class EditModel : PageModel
     {
-        private readonly SkyViews.Models.SkyViewsShowingsContext _context;
+        private readonly SkyViews.Models.SkyViewsContext _context;
 
-        public EditModel(SkyViews.Models.SkyViewsShowingsContext context)
+        public EditModel(SkyViews.Models.SkyViewsContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Showing Showing { get; set; }
+        public Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace SkyViews.Pages.Showings
                 return NotFound();
             }
 
-            Showing = await _context.Showing.FirstOrDefaultAsync(m => m.ShowingID == id);
+            Customer = await _context.Customer.FirstOrDefaultAsync(m => m.CustomerID == id);
 
-            if (Showing == null)
+            if (Customer == null)
             {
                 return NotFound();
             }
@@ -45,7 +45,7 @@ namespace SkyViews.Pages.Showings
                 return Page();
             }
 
-            _context.Attach(Showing).State = EntityState.Modified;
+            _context.Attach(Customer).State = EntityState.Modified;
 
             try
             {
@@ -53,7 +53,7 @@ namespace SkyViews.Pages.Showings
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ShowingExists(Showing.ShowingID))
+                if (!CustomerExists(Customer.CustomerID))
                 {
                     return NotFound();
                 }
@@ -66,9 +66,9 @@ namespace SkyViews.Pages.Showings
             return RedirectToPage("./Index");
         }
 
-        private bool ShowingExists(int id)
+        private bool CustomerExists(int id)
         {
-            return _context.Showing.Any(e => e.ShowingID == id);
+            return _context.Customer.Any(e => e.CustomerID == id);
         }
     }
 }
