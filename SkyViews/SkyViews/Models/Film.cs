@@ -15,11 +15,13 @@ namespace SkyViews.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
-        [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{H:mm:ss}", ApplyFormatInEditMode = true)]
-        public DateTime RunningTime { get; set; }
+        public string RunningTime { get; set; }
         public string Director { get; set; }
         public string Cast { get; set; }
-        public string imagePath { get; set; }
+        public string ImagePath { get; set; }
+
+        public virtual ICollection<Showing> Showing { get; set; }
     }
+
+
 }

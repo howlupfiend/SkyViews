@@ -9,21 +9,20 @@ using SkyViews.Models;
 
 namespace SkyViews.Pages
 {
-    public class IndexModel : PageModel
+    public class BookingModel : PageModel
     {
-
         private readonly SkyViewsContext _context;
 
-        public IndexModel(SkyViewsContext context)
+        public BookingModel(SkyViewsContext context)
         {
             _context = context;
         }
 
+        public Film Film { get; set; }
 
-        public IList<Film> Film{ get; set; }
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? id)
         {
-            Film = await _context.Film.ToListAsync();
+            Film = await _context.Film.Include(s => s.Showing).AsNoTracking().FirstOrDefaultAsync(m => m.FilmID == id);
 
         }
     }
