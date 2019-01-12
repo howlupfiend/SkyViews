@@ -33,8 +33,6 @@ namespace SkyViews.Migrations
 
                     b.HasKey("BookingID");
 
-                    b.HasIndex("CustomerID");
-
                     b.HasIndex("ShowingID");
 
                     b.ToTable("Booking");
@@ -120,11 +118,6 @@ namespace SkyViews.Migrations
 
             modelBuilder.Entity("SkyViews.Models.Booking", b =>
                 {
-                    b.HasOne("SkyViews.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("SkyViews.Models.Showing", "Showing")
                         .WithMany()
                         .HasForeignKey("ShowingID")
@@ -134,7 +127,7 @@ namespace SkyViews.Migrations
             modelBuilder.Entity("SkyViews.Models.Showing", b =>
                 {
                     b.HasOne("SkyViews.Models.Film", "Film")
-                        .WithMany()
+                        .WithMany("Showing")
                         .HasForeignKey("FilmID")
                         .OnDelete(DeleteBehavior.Cascade);
 

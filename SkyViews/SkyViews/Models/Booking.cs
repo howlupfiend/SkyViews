@@ -15,7 +15,6 @@ namespace SkyViews.Models
         public int ShowingID { get; set; }
         public int SeatNo { get; set; }
 
-        public virtual Customer Customer { get; set; }
 
        
         public virtual Showing Showing { get; set; }

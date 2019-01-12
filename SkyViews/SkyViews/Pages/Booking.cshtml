@@ -1,8 +1,30 @@
-﻿@page
+﻿@page "{id:int}"
 @model SkyViews.Pages.BookingModel
 @{
     ViewData["Title"] = "Booking";
 }
 
 <h1>Bookings</h1>
+<h2>@Html.DisplayFor(model => model.Film.Title)</h2>
+<img src="@Model.Film.ImagePath"/>
+<table>
+    <thead>
+        <tr>
+            <th>Available Showing Times</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Film.Showing)
+        {
+            <tr>@item.ShowingTime</tr>
+            <tr><button type="button" class="btn btn-primary">Select Booking</button"></tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+
 

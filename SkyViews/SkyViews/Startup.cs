@@ -47,7 +47,7 @@ namespace SkyViews
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<SkyViewsContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SkyViewsCustomerContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("SkyViewsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

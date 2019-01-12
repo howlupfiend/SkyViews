@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using SkyViews.Models;
 
 namespace SkyViews.Pages
@@ -17,16 +18,12 @@ namespace SkyViews.Pages
             _context = context;
         }
 
-        public Booking Booking { get; set; }
-//        public async Task<IActionResult> OnGetAsync(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            
-//            }
+        public Film Film { get; set; }
 
+        public async Task OnGetAsync(int? id)
+        {
+            Film = await _context.Film.Include(s => s.Showing).AsNoTracking().FirstOrDefaultAsync(m => m.FilmID == id);
 
-//        }
+        }
     }
 }

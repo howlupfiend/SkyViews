@@ -10,7 +10,7 @@ using SkyViews.Models;
 namespace SkyViews.Migrations
 {
     [DbContext(typeof(SkyViewsContext))]
-    [Migration("20190108214714_InitialCreate")]
+    [Migration("20190111153158_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,8 +34,6 @@ namespace SkyViews.Migrations
                     b.Property<int>("ShowingID");
 
                     b.HasKey("BookingID");
-
-                    b.HasIndex("CustomerID");
 
                     b.HasIndex("ShowingID");
 
@@ -122,11 +120,6 @@ namespace SkyViews.Migrations
 
             modelBuilder.Entity("SkyViews.Models.Booking", b =>
                 {
-                    b.HasOne("SkyViews.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("SkyViews.Models.Showing", "Showing")
                         .WithMany()
                         .HasForeignKey("ShowingID")
@@ -136,7 +129,7 @@ namespace SkyViews.Migrations
             modelBuilder.Entity("SkyViews.Models.Showing", b =>
                 {
                     b.HasOne("SkyViews.Models.Film", "Film")
-                        .WithMany()
+                        .WithMany("Showing")
                         .HasForeignKey("FilmID")
                         .OnDelete(DeleteBehavior.Cascade);
 

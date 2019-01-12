@@ -19,5 +19,9 @@ namespace SkyViews.Models
         public string Director { get; set; }
         public string Cast { get; set; }
         public string ImagePath { get; set; }
+
+        public virtual ICollection<Showing> Showing { get; set; }
     }
+
+
 }

@@ -97,23 +97,12 @@ namespace SkyViews.Migrations
                 {
                     table.PrimaryKey("PK_Booking", x => x.BookingID);
                     table.ForeignKey(
-                        name: "FK_Booking_Customer_CustomerID",
-                        column: x => x.CustomerID,
-                        principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Booking_Showing_ShowingID",
                         column: x => x.ShowingID,
                         principalTable: "Showing",
                         principalColumn: "ShowingID",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Booking_CustomerID",
-                table: "Booking",
-                column: "CustomerID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Booking_ShowingID",
