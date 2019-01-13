@@ -44,7 +44,7 @@ namespace SkyViews
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().AddRazorPagesOptions(options => { options.Conventions.AuthorizePage("/Index"); options.Conventions.AuthorizePage("/Booking"); }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<SkyViewsContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SkyViewsContext")));

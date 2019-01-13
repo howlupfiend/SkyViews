@@ -31,8 +31,8 @@ namespace SkyViews.Data
 
             var films = new Film[]
             {
-                new Film{Title="Avengers - Infinity War",Synopsis="lorem ipsum",ReleaseDate=DateTime.Parse("26/04/2018"),RunningTime="160m",Director="Anthony Russo, Joe Russo",Cast="Robert Downey Jr., Chris Hemsworth, Mark Ruffalo...",ImagePath="/imgs/avengers.jpg"},
-                new Film{Title="Venom",Synopsis="lorem ipsum",ReleaseDate=DateTime.Parse("03/08/2018"),RunningTime="112m",Director="Ruben Fleischer",Cast="Tom Hardy, Michelle Williams...",ImagePath="/imgs/venom.png"}
+                new Film{Title="Avengers - Infinity War",Synopsis="Earth's mightiest heroes must team up once again to fight their most fiercest foe yet. Will they stop Thanos before it’s too late…",ReleaseDate=DateTime.Parse("26/04/2018"),RunningTime="160 minutes",Director="Anthony Russo, Joe Russo",Cast="Robert Downey Jr., Chris Hemsworth, Mark Ruffalo...",ImagePath="/imgs/avengers.jpg"},
+                new Film{Title="Venom",Synopsis="Venom is out on the loose again. Trying to be the bad guy but ends up being a hero. Probably the worst film of 2018.",ReleaseDate=DateTime.Parse("03/08/2018"),RunningTime="112 minutes",Director="Ruben Fleischer",Cast="Tom Hardy, Michelle Williams...",ImagePath="/imgs/venom.png"}
             };
 
             foreach (Film f in films)
@@ -43,7 +43,8 @@ namespace SkyViews.Data
 
             var rooms = new Room[]
             {
-                new Room{NoOfSeats=200}
+                new Room{NoOfSeats=200},
+                new Room{NoOfSeats=50}
             };
 
             foreach (Room r in rooms)
@@ -54,7 +55,8 @@ namespace SkyViews.Data
 
             var showings = new Showing[]
             {
-                new Showing{RoomID=1,FilmID=1,ShowingTime=DateTime.Parse("10/1/2018 18:00:00")}
+                new Showing{RoomID=1,FilmID=1,ShowingTime=DateTime.Parse("14/1/2018 18:00:00")},
+                new Showing{RoomID=2,FilmID=2,ShowingTime=DateTime.Parse("15/1/2018 16:30:00")}
             };
 
             foreach (Showing s in showings)
