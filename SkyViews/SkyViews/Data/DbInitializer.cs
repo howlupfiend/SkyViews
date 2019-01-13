@@ -55,7 +55,8 @@ namespace SkyViews.Data
 
             var showings = new Showing[]
             {
-                new Showing{RoomID=1,FilmID=1,ShowingTime=DateTime.Parse("10/1/2018 18:00:00")}
+                new Showing{RoomID=1,FilmID=1,ShowingTime=DateTime.Parse("14/1/2018 18:00:00")},
+                new Showing{RoomID=2,FilmID=2,ShowingTime=DateTime.Parse("15/1/2018 16:30:00")}
             };
 
             foreach (Showing s in showings)

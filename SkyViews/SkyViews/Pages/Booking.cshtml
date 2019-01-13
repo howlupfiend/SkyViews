@@ -3,8 +3,12 @@
 @{
     ViewData["Title"] = "Booking";
 }
+<div class="text-center">
+    <img src="/imgs/sky_views_logo.png" />
+</div>
 
-<h1>Bookings</h1>
+
+<h1>Booking confirmation</h1>
 <h2>@Html.DisplayFor(model => model.Film.Title)</h2>
 <img src="@Model.Film.ImagePath" />
 <h4>@Html.DisplayNameFor(model => model.Film.Synopsis)</h4>

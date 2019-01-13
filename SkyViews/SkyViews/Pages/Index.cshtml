@@ -5,11 +5,11 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome To Sky Views</h1>
+    <img src="/imgs/sky_views_logo.png" />
     @foreach (var item in Model.Film)
     {
     <div>
-        <h1>@Html.DisplayFor(modelItem => item.Title)</h1>
+        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
         <h4>@Html.DisplayNameFor(modelItem => item.Synopsis)</h4>
         <p>@Html.DisplayFor(modelItem => item.Synopsis)</p>
         <img src="@item.ImagePath" />
