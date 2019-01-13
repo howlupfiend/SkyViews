@@ -12,12 +12,14 @@
         <h1>@Html.DisplayFor(modelItem => item.Title)</h1>
         <h4>@Html.DisplayNameFor(modelItem => item.Synopsis)</h4>
         <p>@Html.DisplayFor(modelItem => item.Synopsis)</p>
-       <img src="@item.ImagePath" />
+        <img src="@item.ImagePath" />
         <h4>@Html.DisplayNameFor(modelItem => item.Cast)</h4>
         <p>@Html.DisplayFor(modelItem => item.Cast)</p>
         <h4>@Html.DisplayNameFor(modelItem => item.RunningTime)</h4>
         <p>@Html.DisplayFor(modelItem => item.RunningTime)</p>
-       
+
+
+        <p>@Html.DisplayFor(model => model.currentUser)</p>
         <a asp-page="/Booking" asp-route-id="@item.FilmID"><button type="button" class="btn btn-primary">Book Now</button></a>
     </div>
     }

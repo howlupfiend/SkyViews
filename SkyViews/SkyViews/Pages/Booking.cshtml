@@ -6,19 +6,19 @@
 
 <h1>Bookings</h1>
 <h2>@Html.DisplayFor(model => model.Film.Title)</h2>
-<img src="@Model.Film.ImagePath"/>
+<img src="@Model.Film.ImagePath" />
+<h4>@Html.DisplayNameFor(model => model.Film.Synopsis)</h4>
+<p>@Html.DisplayFor(model => model.Film.Synopsis)</p>
+<h4></h4>
+<h5>This is your seat number: @Html.DisplayFor(model => model.assignedNumber)</h5>
 <table>
-    <thead>
-        <tr>
-            <th>Available Showing Times</th>
-        </tr>
-    </thead>
     <tbody>
         @foreach (var item in Model.Film.Showing)
         {
+            <tr>This is your showing time: </tr>
             <tr>@item.ShowingTime</tr>
-            <tr><button type="button" class="btn btn-primary">Select Booking</button"></tr>
         }
+
     </tbody>
 
 </table>
